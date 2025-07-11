@@ -1,5 +1,5 @@
 const CommonLocalStorageKeys = {
-  notificationShown: 'notificationShown',
+  testnetNotificationShown: 'testnetNotificationShown',
   resetStakeEndDate: 'resetStakeEndDate',
 };
 
