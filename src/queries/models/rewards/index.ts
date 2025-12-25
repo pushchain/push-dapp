@@ -3,6 +3,7 @@ export * from './getRewardsActivityModelCreator';
 export * from './getUserDiscordDetailsModelCreator';
 export * from './claimRewardsActivityModelCreator';
 export * from './getUserRewardDetailsModel';
+export * from './getUserRewardsStatsModel';
 export * from './createUserRewardsDetailsModel';
 export * from './getRewardsLeaderboardModalCreator';
 export * from './getRewardActivityStatusModel';

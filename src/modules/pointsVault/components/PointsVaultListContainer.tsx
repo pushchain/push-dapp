@@ -7,6 +7,7 @@ import { PointsVaultRejectedList } from './PointsVaultRejectedList';
 import { useDebounce } from 'react-use';
 import { useCallback, useState } from 'react';
 import { ethers } from 'ethers';
+import { useGetUserRewardsStats } from 'queries';
 
 const PointsVaultListContainer = () => {
   const [query, setQuery] = useState('');
@@ -21,6 +22,10 @@ const PointsVaultListContainer = () => {
   }, []);
 
   useDebounce(() => setDebouncedQuery(getFormattedQuery(query)), 500, [query]);
+
+  const { data: userStats } = useGetUserRewardsStats();
+
+  console.log(userStats, 'userstats');
 
   return (
     <Box

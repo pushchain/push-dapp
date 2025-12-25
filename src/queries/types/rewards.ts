@@ -183,6 +183,8 @@ export type UserRewardsDetailResponse = {
   usersInvited: number;
 };
 
+export type UserRewardsStatsResponse = unknown;
+
 export type createUserRewardsDetailsProps = {
   userWallet: string;
   pgpPublicKey: string;
