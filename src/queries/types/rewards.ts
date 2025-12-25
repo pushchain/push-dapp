@@ -183,6 +183,11 @@ export type UserRewardsDetailResponse = {
   usersInvited: number;
 };
 
+export type UserRewardsStatsResponse = {
+  totalUsers: number;
+  totalUsersWithEmail: number;
+};
+
 export type createUserRewardsDetailsProps = {
   userWallet: string;
   pgpPublicKey: string;

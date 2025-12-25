@@ -49,6 +49,7 @@ export const userProfileInfo = 'userProfileInfo';
 export const updateUserProfileDetails = 'updateUserProfileDetails';
 export const userRewardsDetails = 'userRewardsDetails';
 export const UserRewardsDetails = 'userRewardsDetails';
+export const userRewardsStats = 'userRewardsStats';
 export const userSocialStatus = 'userSocialStatus';
 export const userSubscription = 'userSubscription';
 export const userTwitterDetails = 'userTwitterDetails';

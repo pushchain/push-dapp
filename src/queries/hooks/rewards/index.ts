@@ -3,6 +3,7 @@ export * from './useGetRewardsActivity';
 export * from './useGetUserDiscordDetails';
 export * from './claimRewardsActivity';
 export * from './useGetUserRewardsDetails';
+export * from './useGetUserRewardsStats';
 export * from './useCreateRewardsUser';
 export * from './useGetRewardsLedearboard';
 export * from './useGetRewardActivityStatus';

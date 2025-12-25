@@ -7,7 +7,7 @@ const PointsVaultListColumns: FC = () => {
       display="flex"
       justifyContent="space-between"
     >
-      <Box width="345px">
+      <Box width="300px">
         <Text
           variant="c-bold"
           color="text-tertiary"
@@ -16,7 +16,7 @@ const PointsVaultListColumns: FC = () => {
         </Text>
       </Box>
 
-      <Box width="345px">
+      <Box width="200px">
         <Text
           variant="c-bold"
           color="text-tertiary"
@@ -26,7 +26,7 @@ const PointsVaultListColumns: FC = () => {
       </Box>
 
       <Box
-        width="42px"
+        width="190px"
         justifyContent="center"
         display="flex"
       >
@@ -34,7 +34,20 @@ const PointsVaultListColumns: FC = () => {
           variant="c-bold"
           color="text-tertiary"
         >
-          FOLLOWERS
+          DISCORD USERNAME
+        </Text>
+      </Box>
+
+      <Box
+        width="150px"
+        justifyContent="center"
+        display="flex"
+      >
+        <Text
+          variant="c-bold"
+          color="text-tertiary"
+        >
+          EMAIL
         </Text>
       </Box>
 

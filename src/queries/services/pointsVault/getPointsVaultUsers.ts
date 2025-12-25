@@ -14,7 +14,7 @@ export const getPointsVaultUsers = ({
 }: PointsVaultGetUsersPayload) =>
   axios({
     method: 'GET',
-    url: `${getRewardsBaseURL()}/activities/list`,
+    url: `${getRewardsBaseURL()}/v2/activities/list`,
     params: {
       status,
       page,

@@ -7,6 +7,7 @@ import { PointsVaultRejectedList } from './PointsVaultRejectedList';
 import { useDebounce } from 'react-use';
 import { useCallback, useState } from 'react';
 import { ethers } from 'ethers';
+import { useGetUserRewardsStats } from 'queries';
 
 const PointsVaultListContainer = () => {
   const [query, setQuery] = useState('');
@@ -22,18 +23,70 @@ const PointsVaultListContainer = () => {
 
   useDebounce(() => setDebouncedQuery(getFormattedQuery(query)), 500, [query]);
 
+  const { data: userStats } = useGetUserRewardsStats();
+
   return (
     <Box
       backgroundColor="surface-primary"
       padding="spacing-md"
       borderRadius="radius-md"
     >
-      <Text
-        variant="h4-bold"
-        color="text-primary"
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        margin="spacing-none spacing-none spacing-sm spacing-none"
       >
-        Points Vault
-      </Text>
+        <Text
+          variant="h4-bold"
+          color="text-primary"
+        >
+          Points Vault
+        </Text>
+        {userStats && (
+          <Box
+            display="flex"
+            gap="spacing-md"
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+            >
+              <Text
+                variant="bs-semibold"
+                color="text-primary"
+              >
+                {userStats.totalUsers.toLocaleString()}
+              </Text>
+              <Text
+                variant="bes-regular"
+                color="text-tertiary"
+              >
+                Total Users
+              </Text>
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+            >
+              <Text
+                variant="bs-semibold"
+                color="text-primary"
+              >
+                {userStats.totalUsersWithEmail.toLocaleString()}
+              </Text>
+              <Text
+                variant="bes-regular"
+                color="text-tertiary"
+              >
+                With Email
+              </Text>
+            </Box>
+          </Box>
+        )}
+      </Box>
       <Box
         display="flex"
         justifyContent="space-between"

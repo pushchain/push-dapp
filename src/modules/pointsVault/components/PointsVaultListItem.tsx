@@ -10,6 +10,12 @@ export type PointsVaultListItemProps = {
   refetch: (actions?: PointsVaultStatus) => void;
 };
 
+const truncateMiddle = (str: string, startChars: number = 14, endChars: number = 14) => {
+  if (!str) return '';
+  if (str.length <= startChars + endChars) return str;
+  return `${str.slice(0, startChars)}...${str.slice(-endChars)}`;
+};
+
 const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemProps) => {
   const token = usePointsVaultToken();
   const { data } = useGetUserTwitterDetails(item.data?.twitter, token);
@@ -28,14 +34,14 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
         <Box
           display="flex"
           alignItems="center"
-          width="345px"
+          width="300px"
           height="22px"
         >
           <Text
             variant="bs-semibold"
             color="text-secondary"
           >
-            {caip10ToWallet(item.userWallet)}
+            {truncateMiddle(item.userWallet)}
           </Text>
         </Box>
       </Skeleton>
@@ -44,10 +50,10 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
         <Box
           display="flex"
           alignItems="center"
-          width="345px"
+          width="200px"
         >
           <Link
-            to={`https://x.com/${item.data?.twitter}`}
+            to={`https://x.com/${item.twitterUserName || item.data?.twitter}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +61,7 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
               color="text-brand-medium"
               variant="bs-semibold"
             >
-              https://x.com/{item.data?.twitter}
+              https://x.com/{item.twitterUserName || item.data?.twitter}
             </Text>
           </Link>
         </Box>
@@ -66,13 +72,27 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
           display="flex"
           alignItems="center"
           justifyContent="center"
-          width="42px"
+          width="190px"
         >
           <Text
             variant="bs-semibold"
-            color={data?.followersCount && data.followersCount < 50 ? 'text-state-danger-bold' : 'text-primary'}
           >
-            {data?.followersCount ?? '-'}
+            {item?.primaryDiscordUserName ?? '-'}
+          </Text>
+        </Box>
+      </Skeleton>
+
+      <Skeleton isLoading={isLoading}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          width="150px"
+        >
+          <Text
+            variant="bs-semibold"
+          >
+            {item?.discordEmail ?? '-'}
           </Text>
         </Box>
       </Skeleton>
