@@ -5,5 +5,8 @@ export * from './useGetUserTwitterDetails';
 export * from './useGetUserTwitterDetails';
 export * from './usePointsVaultToken';
 export * from './useGetPointsVaultApprovedUsers';
+export * from './useGetPointsVaultApprovedUsersPaginated';
 export * from './useGetPointsVaultPendingUsers';
+export * from './useGetPointsVaultPendingUsersPaginated';
 export * from './useGetPointsVaultRejectedUsers';
+export * from './useGetPointsVaultRejectedUsersPaginated';

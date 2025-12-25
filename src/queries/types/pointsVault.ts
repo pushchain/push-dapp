@@ -26,6 +26,9 @@ export type PointsVaultActivity = {
   createdAt: string; // ISO 8601 date string
   updatedAt: string; // ISO 8601 date string
   userWallet: string;
+  primaryDiscordUserName: string;
+  secondaryDiscordUserName: string;
+  twitterUserName: string;
 };
 
 export type PointsVaultActivitiesResponse = {

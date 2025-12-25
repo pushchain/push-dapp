@@ -34,7 +34,20 @@ const PointsVaultListColumns: FC = () => {
           variant="c-bold"
           color="text-tertiary"
         >
-          FOLLOWERS
+          DISCORD USERNAME
+        </Text>
+      </Box>
+
+      <Box
+        width="42px"
+        justifyContent="center"
+        display="flex"
+      >
+        <Text
+          variant="c-bold"
+          color="text-tertiary"
+        >
+          EMAIL
         </Text>
       </Box>
 

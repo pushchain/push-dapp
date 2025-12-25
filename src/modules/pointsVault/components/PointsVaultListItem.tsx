@@ -35,7 +35,7 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
             variant="bs-semibold"
             color="text-secondary"
           >
-            {caip10ToWallet(item.userWallet)}
+            {item.userWallet}
           </Text>
         </Box>
       </Skeleton>
@@ -47,7 +47,7 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
           width="345px"
         >
           <Link
-            to={`https://x.com/${item.data?.twitter}`}
+            to={`https://x.com/${item.twitterUserName || item.data?.twitter}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +55,7 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
               color="text-brand-medium"
               variant="bs-semibold"
             >
-              https://x.com/{item.data?.twitter}
+              https://x.com/{item.twitterUserName || item.data?.twitter}
             </Text>
           </Link>
         </Box>
@@ -70,9 +70,23 @@ const PointsVaultListItem = ({ isLoading, item, refetch }: PointsVaultListItemPr
         >
           <Text
             variant="bs-semibold"
-            color={data?.followersCount && data.followersCount < 50 ? 'text-state-danger-bold' : 'text-primary'}
           >
-            {data?.followersCount ?? '-'}
+            {item?.primaryDiscordUserName ?? '-'}
+          </Text>
+        </Box>
+      </Skeleton>
+
+      <Skeleton isLoading={isLoading}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          width="42px"
+        >
+          <Text
+            variant="bs-semibold"
+          >
+            {item?.discordEmail ?? '-'}
           </Text>
         </Box>
       </Skeleton>

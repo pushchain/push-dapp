@@ -1,18 +1,17 @@
-import { Box } from 'blocks';
+import { Box, Pagination } from 'blocks';
 import { useQueryClient } from '@tanstack/react-query';
-import InfiniteScroll from 'react-infinite-scroller';
 import LoaderSpinner, { LOADER_TYPE } from 'components/reusables/loaders/LoaderSpinner';
 import { PointsVaultListColumns } from './PointsVaultListColumns';
 import { PointsVaultListItem } from './PointsVaultListItem';
 import {
-  PointsVaultActivitiesResponse,
   PointsVaultStatus,
   pointsVaultApprovedUsers,
   pointsVaultRejectedUsers,
-  useGetPointsVaultPendingUsers,
+  useGetPointsVaultPendingUsersPaginated,
   usePointsVaultToken,
 } from 'queries';
 import { LeaderBoardNullState } from 'modules/rewards/components/LeaderboardNullState';
+import { useEffect, useState } from 'react';
 
 type PointsVaultPendingListProps = {
   query: {
@@ -23,26 +22,29 @@ type PointsVaultPendingListProps = {
 
 const PointsVaultPendingList = ({ query }: PointsVaultPendingListProps) => {
   const token = usePointsVaultToken();
-
   const queryClient = useQueryClient();
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError, refetch } =
-    useGetPointsVaultPendingUsers({
-      status: 'PENDING',
-      token,
-      pageSize: 20,
-      twitter: query.twitter,
-      wallet: query.wallet,
-      activityTypeId: 'follow_push_on_twitter',
-    });
+  const { data, isLoading, isError, refetch, isFetching } = useGetPointsVaultPendingUsersPaginated({
+    status: 'PENDING',
+    token,
+    pageSize,
+    page: currentPage,
+    twitter: query.twitter,
+    wallet: query.wallet,
+    activityTypeId: 'follow_push_on_twitter',
+  });
 
-  const hasMoreData = !isFetchingNextPage && hasNextPage;
+  // Reset to page 1 when search query changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query.twitter, query.wallet]);
 
-  const pointsVaultList = isLoading
-    ? Array(5).fill(0)
-    : data?.pages.flatMap((page: PointsVaultActivitiesResponse) => page.activities) || [];
+  const pointsVaultList = isLoading ? Array(5).fill(0) : data?.activities || [];
+  const totalItems = data?.total || 0;
 
-  if (!pointsVaultList.length) {
+  if (!pointsVaultList.length && !isLoading) {
     return (
       <LeaderBoardNullState
         refetchLeaderboard={isError ? refetch : undefined}
@@ -64,6 +66,10 @@ const PointsVaultPendingList = ({ query }: PointsVaultPendingListProps) => {
     }
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <Box
       gap="spacing-sm"
@@ -71,38 +77,45 @@ const PointsVaultPendingList = ({ query }: PointsVaultPendingListProps) => {
       flexDirection="column"
     >
       <Box
-        height="calc(100vh - 356px)"
+        height="calc(100vh - 420px)"
         overflow="auto"
       >
         <PointsVaultListColumns />
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={() => fetchNextPage()}
-          hasMore={hasMoreData}
-          loader={
-            <Box
-              margin="spacing-xs"
-              key="loader-spinner"
-            >
-              <LoaderSpinner
-                spinnerSize={24}
-                type={LOADER_TYPE.SEAMLESS}
-              />
-            </Box>
-          }
-          useWindow={false}
-          threshold={150}
-        >
-          {pointsVaultList.map((item, index) => (
-            <PointsVaultListItem
-              key={item?.activityId || index}
-              item={item}
-              isLoading={isLoading}
-              refetch={handleRefetch}
+        {pointsVaultList.map((item, index) => (
+          <PointsVaultListItem
+            key={item?.activityId || index}
+            item={item}
+            isLoading={isLoading}
+            refetch={handleRefetch}
+          />
+        ))}
+        {isFetching && !isLoading && (
+          <Box
+            margin="spacing-xs"
+            display="flex"
+            justifyContent="center"
+          >
+            <LoaderSpinner
+              spinnerSize={24}
+              type={LOADER_TYPE.SEAMLESS}
             />
-          ))}
-        </InfiniteScroll>
+          </Box>
+        )}
       </Box>
+      {totalItems > 0 && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          padding="spacing-sm spacing-none"
+        >
+          <Pagination
+            current={currentPage}
+            pageSize={pageSize}
+            total={totalItems}
+            onChange={handlePageChange}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
