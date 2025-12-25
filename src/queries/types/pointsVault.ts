@@ -29,6 +29,7 @@ export type PointsVaultActivity = {
   primaryDiscordUserName: string;
   secondaryDiscordUserName: string;
   twitterUserName: string;
+  discordEmail: string;
 };
 
 export type PointsVaultActivitiesResponse = {
