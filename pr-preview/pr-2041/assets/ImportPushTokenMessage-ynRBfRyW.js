@@ -1,0 +1,3 @@
+import{d_ as t,d$ as i,e2 as r,e3 as n,__tla as l}from"./index-C5b2Gr8I.js";import{i as o,__tla as c}from"./StakingVariant-HkXNNpxv.js";let e,_=Promise.all([(()=>{try{return l}catch{}})(),(()=>{try{return c}catch{}})()]).then(async()=>{e=({title:a})=>{const s=async()=>{await o()};return t.jsxs(i,{display:"flex",flexDirection:"row",justifyContent:"center",gap:"spacing-xxxs",children:[t.jsx(r,{variant:"bes-semibold",color:"text-tertiary",children:a}),t.jsx(r,{css:n`
+          cursor: pointer;
+        `,variant:"bes-semibold",color:"text-brand-medium",onClick:s,children:"Import Token"})]})}});export{e as I,_ as __tla};

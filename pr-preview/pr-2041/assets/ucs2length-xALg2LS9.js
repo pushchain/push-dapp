@@ -1,0 +1,1 @@
+var u={};Object.defineProperty(u,"__esModule",{value:!0});function o(r){const d=r.length;let n=0,e=0,t;for(;e<d;)n++,t=r.charCodeAt(e++),t>=55296&&t<=56319&&e<d&&(t=r.charCodeAt(e),(t&64512)===56320&&e++);return n}u.default=o,o.code='require("ajv/dist/runtime/ucs2length").default';export{u};
