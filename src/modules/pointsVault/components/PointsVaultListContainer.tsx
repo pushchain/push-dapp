@@ -64,6 +64,55 @@ const PointsVaultListContainer = () => {
                 variant="bm-semibold"
                 color="text-primary"
               >
+                All Seasons
+              </Text>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.allSeasons.totalUniqueUsers?.toLocaleString()}
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users with Email
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.allSeasons.totalUniqueUsersWithEmail?.toLocaleString()}
+                </Text>
+              </Box>
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              gap="spacing-xs"
+            >
+              <Text
+                variant="bm-semibold"
+                color="text-primary"
+              >
                 Season 2
               </Text>
               <Box
