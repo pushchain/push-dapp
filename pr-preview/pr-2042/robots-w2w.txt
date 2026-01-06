@@ -1,0 +1,3 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Sitemap: https://w2w.push.org/sitemap.txt

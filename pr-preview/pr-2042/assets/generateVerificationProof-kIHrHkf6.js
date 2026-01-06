@@ -1,0 +1,1 @@
+import{eA as n,eB as o,eC as y,__tla as c}from"./index-D0laDxf9.js";let t,d=Promise.all([(()=>{try{return c}catch{}})()]).then(async()=>{t=async(e,a)=>{if(a&&!(a!=null&&a.readmode())){const r=JSON.stringify(e),s=await n({text:r}),i=await o({armoredKey:a.decryptedPgpPvtKey});return await y({message:s,signingKeys:i,detached:!0})}}});export{d as __tla,t as g};
