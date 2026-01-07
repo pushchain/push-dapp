@@ -25,8 +25,6 @@ const PointsVaultListContainer = () => {
 
   const { data: userStats } = useGetUserRewardsStats();
 
-  console.log(userStats, 'data')
-
   return (
     <Box
       backgroundColor="surface-primary"
