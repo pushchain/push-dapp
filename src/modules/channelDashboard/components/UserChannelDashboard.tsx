@@ -38,7 +38,7 @@ const UserChannelDashboard: FC<UserChannelDashboardProps> = ({
    * 2. Check If the Filtered alias exists and is verified or not
    * 3. If verified, then it is an active network (means: Channel is present and is active on this chain)
    * 4. If not, then it is not on active network -> then we pass filtered alias details to the ChannelDashboardNullChain to check if loading or not
-   * 5. We check that alias is present and is_alias_verified is 0 (alias not verified), then we show laoding state
+   * 5. We check that alias is present and is_alias_verified is 0 (alias not verified), then we show loading state
    * 6. If alias is not present, then we show add new chain button
    */
 

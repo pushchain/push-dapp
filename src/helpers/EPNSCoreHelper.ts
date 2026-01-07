@@ -120,7 +120,7 @@ const EPNSCoreHelper = {
     const enableLogs: number = 0;
 
     return new Promise((resolve, reject) => {
-      // Split Channel Identity, delimeter of identity is "+"
+      // Split Channel Identity, delimiter of identity is "+"
       if (!identity) {
         reject(`There is no identity file for channel: ${channel}`);
       }

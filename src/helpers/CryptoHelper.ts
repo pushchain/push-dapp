@@ -210,7 +210,7 @@ const CryptoHelper = {
     const decryptionTime: number = new Date().getTime() - startTime.getTime() - encryptionTime;
     console.debug('[ENCRYPTION / DECRYPTION DECRYPTION DONE] - ' + decryptionTime / 1000 + ' secs');
   },
-  // To output messge payload if required
+  // To output message payload if required
   outputMsgPayload: async function ({
     secret,
     subject,
