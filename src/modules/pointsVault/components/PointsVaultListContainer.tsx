@@ -33,56 +33,171 @@ const PointsVaultListContainer = () => {
     >
       <Box
         display="flex"
+        flexDirection="column"
         justifyContent="space-between"
-        alignItems="center"
+        alignItems="flex-start"
         margin="spacing-none spacing-none spacing-sm spacing-none"
       >
         <Text
-          variant="h4-bold"
+          variant="h3-bold"
           color="text-primary"
         >
           Points Vault
         </Text>
+
+
         {userStats && (
           <Box
             display="flex"
-            gap="spacing-md"
+            gap="spacing-lg"
+            margin="spacing-md spacing-none spacing-none spacing-none"
           >
             <Box
               display="flex"
               flexDirection="column"
-              alignItems="flex-end"
+              alignItems="flex-start"
+              gap="spacing-xs"
             >
               <Text
-                variant="bs-semibold"
+                variant="bm-semibold"
                 color="text-primary"
               >
-                {userStats.totalUsers.toLocaleString()}
+                All Seasons
               </Text>
-              <Text
-                variant="bes-regular"
-                color="text-tertiary"
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
               >
-                Total Users
-              </Text>
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.allSeasons.totalUniqueUsers?.toLocaleString()}
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users with Email
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.allSeasons.totalUniqueUsersWithEmail?.toLocaleString()}
+                </Text>
+              </Box>
             </Box>
             <Box
               display="flex"
               flexDirection="column"
-              alignItems="flex-end"
+              alignItems="flex-start"
+              gap="spacing-xs"
             >
               <Text
-                variant="bs-semibold"
+                variant="bm-semibold"
                 color="text-primary"
               >
-                {userStats.totalUsersWithEmail.toLocaleString()}
+                Season 2
               </Text>
-              <Text
-                variant="bes-regular"
-                color="text-tertiary"
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
               >
-                With Email
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.seasonTwo.totalUsers?.toLocaleString()}
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users with Email
+                </Text>
+                <Text
+                  variant="bs-semibold"
+                  color="text-primary"
+                >
+                  {userStats.seasonTwo.totalUsersWithEmail?.toLocaleString()}
+                </Text>
+              </Box>
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              gap="spacing-xs"
+            >
+              <Text
+                variant="bm-semibold"
+                color="text-primary"
+              >
+                Season 1
               </Text>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users
+                </Text>
+                <Text
+                  variant="h6-semibold"
+                  color="text-primary"
+                >
+                  {userStats.seasonOne.totalUsers?.toLocaleString()}
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Text
+                  variant="h6-regular"
+                  color="text-tertiary"
+                >
+                  Total Users with Email
+                </Text>
+                <Text
+                  variant="h6-semibold"
+                  color="text-primary"
+                >
+                  {userStats.seasonOne.totalUsersWithEmail?.toLocaleString()}
+                </Text>
+              </Box>
             </Box>
           </Box>
         )}

@@ -184,8 +184,18 @@ export type UserRewardsDetailResponse = {
 };
 
 export type UserRewardsStatsResponse = {
-  totalUsers: number;
-  totalUsersWithEmail: number;
+  seasonOne: {
+    totalUsers: number;
+    totalUsersWithEmail: number;
+  };
+  seasonTwo: {
+    totalUsers: number;
+    totalUsersWithEmail: number;
+  };
+  allSeasons: {
+    totalUniqueUsers: number;
+    totalUniqueUsersWithEmail: number;
+  };
 };
 
 export type createUserRewardsDetailsProps = {
