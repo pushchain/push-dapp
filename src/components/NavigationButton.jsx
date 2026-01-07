@@ -6,7 +6,7 @@ import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import { MdError } from 'react-icons/md';
 import styled, { css, useTheme } from 'styled-components';
 
-// Internal Compoonents
+// Internal Components
 import LoaderSpinner, { LOADER_TYPE } from 'components/reusables/loaders/LoaderSpinner';
 import useToast from 'hooks/useToast';
 import { Anchor, Image, ItemH, RouterLink, Span } from 'primaries/SharedStyling';

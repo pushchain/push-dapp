@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Internal Compoonents
+// Internal Components
 import { AInlineV2, H2V2, ItemVV2 } from 'components/reusables/SharedStylingV2';
 import Tooltip from 'components/reusables/tooltip/Tooltip';
 

@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 import styled, { useTheme } from 'styled-components';
 import { MdCheckCircle, MdError } from 'react-icons/md';
 
-// Internal Compoonents
+// Internal Components
 import useToast from 'hooks/useToast';
 import useModalBlur, { MODAL_POSITION } from 'hooks/useModalBlur';
 import InfoLogo from '../../assets/inforWithoutBG.svg';
