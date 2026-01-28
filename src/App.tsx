@@ -52,7 +52,7 @@ import SpaceContextProvider from 'contexts/SpaceContext';
 import { SpaceWidgetSection } from 'sections/space/SpaceWidgetSection';
 import { blocksColors, getBlocksCSSVariables, Notification } from 'blocks';
 import APP_PATHS from 'config/AppPaths';
-import { useInAppNotifications, useRewardsNotification } from 'common';
+import { useChainTestnetNotification, useInAppNotifications } from 'common';
 
 dotenv.config();
 
@@ -112,13 +112,13 @@ const GlobalStyle = createGlobalStyle`
     --r9: 36px;
     --r10: 40px;
     // TODO: Add more as needed
-    
+
     /* deprecated */
     /* Colors */
     ${Object.entries(blocksColors)
       .map(([colorName, code]) => `--${colorName}: ${code};`)
       .join('')}
-      
+
     /* Font Family */
       --font-family: 'FK Grotesk Neu';
 
@@ -194,7 +194,7 @@ export default function App() {
 
   const { isActive, account, provider } = useAccount();
   // TODO: comment until rewards v2 launch is accounced
-  useRewardsNotification();
+  useChainTestnetNotification();
   const [currentTime, setcurrentTime] = useState(0);
 
   const { pgpPvtKey } = useContext<any>(AppContext);

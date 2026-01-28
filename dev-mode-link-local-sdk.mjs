@@ -6,7 +6,7 @@ import path from 'path';
 import readline from 'readline';
 
 // import package json
-import packageJSON from './package.json' assert { type: 'json' };
+import packageJSON from './package.json' with { type: 'json' };
 
 const packageJSONWatcher = {
   STORAGE_KEY: 'STORAGE_FOR_RESTORING_PACKAGE_JSON',

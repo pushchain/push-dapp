@@ -42,6 +42,7 @@ const TextContainer = styled.div`
 
 const NotificationTitle = styled.span`
   ${() => getTextVariantStyles('h5-semibold', 'components-in-app-notification-text-default')}
+  width: 95%;
 `;
 
 const NotificationDescription = styled.span`
@@ -57,9 +58,9 @@ const NotificationDescription = styled.span`
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-xs);
   border-radius: var(--radius-xxs) var(--radius-none) var(--radius-none) var(--radius-xxs);
-  background: radial-gradient(79.55% 79.55% at 50% 50%, #7e3bb9 0%, #171717 100%);
+  background: #1B43C8;
 `;
 
 const CloseButton = styled.div`

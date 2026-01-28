@@ -19,6 +19,8 @@ export { default as ChatIllustration } from './components/Chat';
 
 export { default as ChatDark } from './components/ChatDark';
 
+export { default as ChainTestnet } from './components/ChainTestnet';
+
 export { default as CheckCircle } from './components/CheckCircle';
 
 export { default as Communication } from './components/Communication';
